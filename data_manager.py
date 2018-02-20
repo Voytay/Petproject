@@ -1,8 +1,10 @@
 """ f. odczytuje z pliku
 parametry:
-filename -> "expenses.txt" """
+filename -> "expenses.txt" 
+zwraca:
+data = [[l.p,kwota,kategoria,opis,data]]"""
 
-def data_import(filename="expenses.txt" ):
+def data_import(filename):
     with open(filename, "r") as file:
         content = file.readlines()
     content = list(map(str.strip, content))

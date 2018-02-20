@@ -1,3 +1,3 @@
-1,3500.0,earnings,salary,2018,1,1
-2,100.0,earnings,birthday,2018,1,20
-3,3500.0,earnings,salary,2018,2,1
+1,3500.0,earnings,salary,2018.01.01
+2,100.0,earnings,birthday,2018.01.20
+3,3500.0,earnings,salary,2018.02.01
