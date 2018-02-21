@@ -3,13 +3,12 @@ Program configuration module
 Allows to:
 - change default categories of incomes and expenses
 
-
-
 '''
 
 import display
 import common
 import data_manager
+
 
 def config():
     while True:
