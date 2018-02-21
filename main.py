@@ -10,13 +10,11 @@ def main():
     while decision != 5:
         menu = ['Expenses', 'Incomes', 'Raports', '###Config', 'Exit'] # main menu
         display.print_menu(menu)
-        #data = [['1','2000','data','kategoria']]
+
         data = data_manager.data_import('expenses.txt')
         decision = common.get_decision_input(decision)
         header = ['L.p', 'Kwota','kategoria','opis','data']
-        #display.print_data(data, header)
-        #header = 'HEADER----------------H'
-        display.print_data(data, header)
+        display.print_table(data, header)
         if decision == 1:
             #income_expenses.xxx
             pass

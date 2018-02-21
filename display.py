@@ -5,12 +5,6 @@ def print_menu(data):
         i += 1
 
 
-def print_data(data, header):
-    print(header)
-    for element in data:
-        print(" | ".join(element))
-
-
 def print_message(message):
     print(message)
 
@@ -52,3 +46,14 @@ data = [["1","25.00","shopping"],
         ["3","56.50","shopping"]]
 print_table(data, title)
 
+def total(filename):
+    total = 0
+    data = data_manager.data_import(filename)
+    for element in data:
+        total += float(element[1])
+    return str(total)
+
+def print_percentage_spent():
+    spent = total('expenses.txt')
+    totalz = total('earnings.txt')
+    print_message("Total spent: " + spent + ' of ' + totalz + " | Left: {:.2%}".format((float(totalz)-float(spent))/float(totalz)))

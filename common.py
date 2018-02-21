@@ -11,22 +11,39 @@ def sort(list_to_check):
     year = 4
     month = 5
     day = 6
+<<<<<<< Updated upstream
 
-    sort_option = input("Do you want sort by date or category [d/c]?: ")
 
+=======
+    value = 1
+    
+>>>>>>> Stashed changes
+
+    sort_option = input("Do you want sort by date, category or value?[d/c/v]?: ")
     if sort_option == "d":
-        sort_date(list_to_check, year, month, day)
+        data = sort_date(list_to_check, year, month, day)
+        return data
 
     elif sort_option == "c":
+        display_elements = []
+
         get_category = input("Enter category: ")
         sort_by_date = input("Do you want to display at specifc time [y/n]: ?")
         for elements in list_to_check:
             if elements[category] == get_category:
                 if sort_by_date == "n":
-                    print(elements)
+                    display_elements.append(elements)
                 elif sort_by_date == "y":
                     sort_date(list_to_check, year, month, day)
+        return display_elements
 
+    elif sort_option == "v":
+
+        value_list = []
+        for element in list_to_check:
+            value_list.append(element)
+                
+        return value_list
 
 def sort_date(list_to_check, year, month, day):
     """ Function sort dates"""
@@ -41,24 +58,27 @@ def sort_date(list_to_check, year, month, day):
     start = datetime.date(year_from,month_from,day_from)
     end = datetime.date(year_to,month_to,day_to)
 
+    display_elements = []
+
     for elements in list_to_check:
+
         elements[year] = int(elements[year])
         elements[month] = int(elements[month])
         elements[day] = int(elements[day])
         set_year = datetime.date(elements[year],elements[month],elements[day])
         if set_year >= start and set_year <= end:
-            print(elements)
+            display_elements.append(elements)
 
-myfile = data_manager.data_import("expenses.txt")
-#sort(myfile)
+    return display_elements
 
-def get_decision_input(decision):
-    while decision is not True:
+
+def get_decision_input(dec):
+    while dec is not True:
         try:
-            decision = int(input("Enter number: "))
-            return decision
+            dec = int(input("Enter number: "))
+            return dec
         except:
-            pass
+            print("Not number!")
 
 
 def generate_id(data):

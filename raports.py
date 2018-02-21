@@ -12,7 +12,7 @@ def raport():
         if decision == 1:
             gen_raport()
         elif decision == 2:
-            show_list_rap()
+            show_list_raport()
         elif decision == 3:
             delete_raport()
 
@@ -25,7 +25,9 @@ def gen_raport():
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
-            data = data_manager.data_import('earnings.txt')
-            common.sort(data)
+            data = data_manager.data_import('expenses.txt')
+            prin = common.sort(data)
+            display.print_data(prin, "header")
         elif decision == 2:
-            pass
+            data = data_manager.data_import('expenses.txt')
+            common.sort(data)
