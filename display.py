@@ -6,14 +6,6 @@ def print_menu(data):
         i += 1
 
 
-def print_data(data, header):
-
-    print("|{:^4}|{:^6}|{:^10}|{:^30}|{:^12}|".format(*header))
-
-    for element in data:
-        print("|{:<4}|{:^6}|{:^10}|{:^30}|{:^12}|".format(*element))
-
-
 def print_message(message):
     print(message)
 
@@ -37,14 +29,6 @@ def print_table(data, title):
         row.append(" |")
         print("".join(row))
 
-
-def get_longest(param):
-    data = data_manager.data_import('expenses.txt')
-    maxx = 0
-    for element in data:
-        if len(element[param]) > maxx:
-            maxx = len(element[param])
-    return maxx
 
 def total(filename):
     total = 0
