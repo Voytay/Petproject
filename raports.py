@@ -25,9 +25,29 @@ def gen_raport():
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
-            data = data_manager.data_import('expenses.txt')
-            prin = common.sort(data)
-            display.print_data(prin, "header")
+            data = data_manager.data_import('earnings.txt')
+            data = common.sort(data)
+            display.print_table(data,'')
+            save_raport(data)
         elif decision == 2:
             data = data_manager.data_import('expenses.txt')
-            common.sort(data)
+            data = common.sort(data)
+            display.print_table(data, '')
+            save_raport(data)
+
+
+def save_raport(data):
+    if_want_save = 0
+    display.print_message("Do you want to save this raport? Press 1 to save...")
+    if_want_save = common.get_decision_input(if_want_save)
+    if if_want_save == 1:
+        filename = input("Enter filename")
+        data_manager.data_export(data, filename+".txt")
+
+def show_list_raport():
+    data = get_raport_list()
+    return data
+
+
+def delete_raport():
+    pass
