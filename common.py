@@ -11,8 +11,8 @@ def sort(list_to_check):
     year = 4
     month = 5
     day = 6
-
-
+    value = 1
+    
 
     sort_option = input("Do you want sort by date, category or value?[d/c/v]?: ")
     if sort_option == "d":
