@@ -3,7 +3,6 @@ __pycache__/
 */__pycache__/
 *.py[cod]
 *$py.class
-categories.txt
 
 # OS-X
 .DS_Store
