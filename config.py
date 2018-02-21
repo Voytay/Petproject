@@ -22,7 +22,6 @@ def config():
             categories()
 
 
-
 def categories():
     decision = 0
     while decision != 3:

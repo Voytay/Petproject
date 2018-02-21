@@ -24,7 +24,7 @@ def raport():
 def gen_raport():
     decision = 0
     while decision != 3:
-        display.print_message("Generating raport")
+        display.print_message("Generating raport menu")
         menu = ['Incomes', 'Expenses', 'Exit']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
@@ -44,7 +44,7 @@ def gen_raport():
 
 def save_raport(data):
     if_want_save = 0
-    display.print_message("Do you want to save this raport? Press 1 to save...")
+    display.print_message("Do you want to save this raport? Press 1 to save: ")
     if_want_save = common.get_decision_input(if_want_save)
     if if_want_save == 1:
         filename = input("Enter filename: ")

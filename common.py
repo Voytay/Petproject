@@ -12,8 +12,6 @@ def sort(list_to_check):
     month = 5
     day = 6
     value = 1
-
-
     sort_option = input("Do you want sort by date, category or value?[d/c/v]?: ")
     if sort_option == "d":
         data = sort_date(list_to_check, year, month, day)
@@ -40,6 +38,7 @@ def sort(list_to_check):
 
         return value_list
 
+
 def sort_date(list_to_check, year, month, day):
     """ Function sort dates"""
 
@@ -50,16 +49,16 @@ def sort_date(list_to_check, year, month, day):
     month_to = int(input("Give the month to [m]: "))
     day_to = int(input("Give the day to [d]: "))
 
-    start = datetime.date(year_from,month_from,day_from)
-    end = datetime.date(year_to,month_to,day_to)
+    start = datetime.date(year_from, month_from, day_from)
+    end = datetime.date(year_to, month_to, day_to)
 
     display_elements = []
 
     for elements in list_to_check:
 
-        #elements[year] = int(elements[year])
-        #elements[month] = int(elements[month])
-        #elements[day] = int(elements[day])
+        #  elements[year] = int(elements[year])
+        #  elements[month] = int(elements[month])
+        #  elements[day] = int(elements[day])
         set_year = datetime.date(int(elements[year]), int(elements[month]), int(elements[day]))
         if set_year >= start and set_year <= end:
             display_elements.append(elements)
@@ -79,7 +78,7 @@ def get_decision_input(dec, prompt="Enter number: "):
 def generate_id(data):
     sign = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+"]
     unique = False
-    while unique == False:
+    while unique is False:
         ids = "".join([random.choice(string.ascii_lowercase),
                     random.choice(sign),
                     random.choice(string.digits),

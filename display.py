@@ -8,11 +8,13 @@ def print_menu(data):
 def print_message(message):
     print(message)
 
+
 def print_list(data, header):
     print(header)
     for element in data:
         print(element)
     print()
+
 
 def print_table(data, title):
 
@@ -51,6 +53,7 @@ def total(filename):
     for element in data:
         total += float(element[1])
     return str(total)
+
 
 def print_percentage_spent():
     spent = total('expenses.txt')

@@ -7,6 +7,7 @@ from raports import raport
 import os
 import intro
 
+
 def main():
     os.system('clear')
     decision = 0
@@ -15,15 +16,15 @@ def main():
     display.print_message(intro.intro2)
     while decision != 5:
         display.print_message("Main menu")
-        menu = ['Expenses', 'Incomes', 'Raports', '###Config', 'Exit'] # main menu
+        menu = ['Expenses', 'Incomes', 'Raports', '###Config', 'Exit']  # main menu
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         os.system('clear')
         if decision == 1:
-            #income_expenses.xxx
+            #  income_expenses.xxx
             pass
         elif decision == 2:
-            #income_expenses.yyy
+            #  income_expenses.yyy
             pass
         elif decision == 3:
             raport()
