@@ -1,0 +1,6 @@
+bills
+shopping
+eating out
+transport
+health
+other
