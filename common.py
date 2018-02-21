@@ -11,10 +11,15 @@ def sort(list_to_check):
     year = 4
     month = 5
     day = 6
+<<<<<<< Updated upstream
 
 
+=======
+    value = 1
+    
+>>>>>>> Stashed changes
 
-    sort_option = input("Do you want sort by date or category [d/c]?: ")
+    sort_option = input("Do you want sort by date, category or value?[d/c/v]?: ")
     if sort_option == "d":
         data = sort_date(list_to_check, year, month, day)
         return data
@@ -31,6 +36,14 @@ def sort(list_to_check):
                 elif sort_by_date == "y":
                     sort_date(list_to_check, year, month, day)
         return display_elements
+
+    elif sort_option == "v":
+
+        value_list = []
+        for element in list_to_check:
+            value_list.append(element)
+                
+        return value_list
 
 def sort_date(list_to_check, year, month, day):
     """ Function sort dates"""
