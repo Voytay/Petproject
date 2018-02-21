@@ -15,6 +15,7 @@ def print_message(message):
     print(message)
 
 
+
 def print_table(data, title):
     
     max_lenght = []
@@ -49,5 +50,5 @@ title = ["id", "kwota", "kategoria"]
 data = [["1","25.00","shopping"], 
         ["2","5.00","transport"],
         ["3","56.50","shopping"]]
-tabelka = print_table(data, title)
+print_table(data, title)
 
