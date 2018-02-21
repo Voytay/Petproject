@@ -11,13 +11,8 @@ def sort(list_to_check):
     year = 4
     month = 5
     day = 6
-<<<<<<< Updated upstream
 
 
-=======
-    value = 1
-    
->>>>>>> Stashed changes
 
     sort_option = input("Do you want sort by date, category or value?[d/c/v]?: ")
     if sort_option == "d":
