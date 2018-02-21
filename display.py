@@ -8,13 +8,11 @@ def print_menu(data):
 
 def print_data(data, header):
 
-    print("|{:^4}|{:^6}|{:^10}|{:^30}|{:^12}|".format(header[0],header[1],header[2],header[3],header[4]))
-    for element in data:
-        print("|{:^4}|{:^6}|{:^10}|{:^30}|{:^12}|".format(element[0],element[1],element[2],element[3],element[4]))
+    print("|{:^4}|{:^6}|{:^10}|{:^30}|{:^12}|".format(*header))
 
-    spent = total('expenses.txt')
-    totalz = total('earnings.txt')
-    print_message("Total spent: " + spent + ' of ' + totalz + " | Left: {:.2%}".format((float(totalz)-float(spent))/float(totalz)))
+    for element in data:
+        print("|{:<4}|{:^6}|{:^10}|{:^30}|{:^12}|".format(*element))
+
 
 def print_message(message):
     print(message)
@@ -54,3 +52,8 @@ def total(filename):
     for element in data:
         total += float(element[1])
     return str(total)
+
+def print_percentage_spent():
+    spent = total('expenses.txt')
+    totalz = total('earnings.txt')
+    print_message("Total spent: " + spent + ' of ' + totalz + " | Left: {:.2%}".format((float(totalz)-float(spent))/float(totalz)))
