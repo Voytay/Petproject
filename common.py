@@ -18,15 +18,15 @@ def sort(list_to_check):
         sort_date(list_to_check, year, month, day)
 
     elif sort_option == "c":
-        get_category = input("Enter category: ") 
+        get_category = input("Enter category: ")
         sort_by_date = input("Do you want to display at specifc time [y/n]: ?")
-        for elements in list_to_check:             
+        for elements in list_to_check:
             if elements[category] == get_category:
                 if sort_by_date == "n":
                     print(elements)
                 elif sort_by_date == "y":
                     sort_date(list_to_check, year, month, day)
-                    
+
 
 def sort_date(list_to_check, year, month, day):
     """ Function sort dates"""
@@ -38,11 +38,10 @@ def sort_date(list_to_check, year, month, day):
     month_to = int(input("Give the month to [m]: "))
     day_to = int(input("Give the day to [d]: "))
 
-    start = datetime.date(year_from,month_from,day_from) 
+    start = datetime.date(year_from,month_from,day_from)
     end = datetime.date(year_to,month_to,day_to)
 
     for elements in list_to_check:
-        
         elements[year] = int(elements[year])
         elements[month] = int(elements[month])
         elements[day] = int(elements[day])
@@ -51,27 +50,27 @@ def sort_date(list_to_check, year, month, day):
             print(elements)
 
 myfile = data_manager.data_import("expenses.txt")
-sort(myfile)
+#sort(myfile)
 
-def get_decision_input(dec):
-    while dec is not True:
+def get_decision_input(decision):
+    while decision is not True:
         try:
-            dec = int(input("Enter number: "))
-            return dec
+            decision = int(input("Enter number: "))
+            return decision
         except:
             pass
 
 
 def generate_id(data):
-    sign = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+"]  
+    sign = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+"]
     unique = False
     while unique == False:
-        ids = "".join([random.choice(string.ascii_lowercase), 
+        ids = "".join([random.choice(string.ascii_lowercase),
                     random.choice(sign),
                     random.choice(string.digits),
                     random.choice(string.ascii_uppercase)])
         unique = True
-        
+
         ids_index = 0
         for row in data:
             if row[ids_index] == ids:

@@ -1,30 +1,32 @@
 import display
 import common
 import income_expenses
+import data_manager
 from config import config
+from raports import raport
 
 def main():
-    while True:
+    decision = 0
+    while decision != 5:
         menu = ['Expenses', 'Incomes', 'Raports', '###Config', 'Exit'] # main menu
         display.print_menu(menu)
-        dec = 0
-        dec = common.get_decision_input(dec)
-        #header = 'HEADER----------------H'
         #data = [['1','2000','data','kategoria']]
+        data = data_manager.data_import('expenses.txt')
+        decision = common.get_decision_input(decision)
+        header = ['L.p', 'Kwota','kategoria','opis','data']
         #display.print_data(data, header)
-        if dec == 1:
+        #header = 'HEADER----------------H'
+        display.print_data(data, header)
+        if decision == 1:
             #income_expenses.xxx
             pass
-        elif dec == 2:
+        elif decision == 2:
             #income_expenses.yyy
             pass
-        elif dec == 3:
-            # raport module
-            pass
-        elif dec == 4:
+        elif decision == 3:
+            raport()
+        elif decision == 4:
             config()
-        elif dec == 5:
-            return False
         else:
             display.print_message("No option!")
 
