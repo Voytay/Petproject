@@ -67,10 +67,10 @@ def sort_date(list_to_check, year, month, day):
     return display_elements
 
 
-def get_decision_input(dec):
+def get_decision_input(dec, prompt="Enter number: "):
     while dec is not True:
         try:
-            dec = int(input("Enter number: "))
+            dec = int(input(prompt))
             return dec
         except:
             print("Not number!")
