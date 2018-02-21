@@ -4,17 +4,21 @@ import income_expenses
 import data_manager
 from config import config
 from raports import raport
+import os
+import intro
 
 def main():
+    os.system('clear')
     decision = 0
+
+    display.print_message(intro.intro)
+    display.print_message(intro.intro2)
     while decision != 5:
+        display.print_message("Main menu")
         menu = ['Expenses', 'Incomes', 'Raports', '###Config', 'Exit'] # main menu
         display.print_menu(menu)
-
-        data = data_manager.data_import('expenses.txt')
         decision = common.get_decision_input(decision)
-        header = ['L.p', 'Kwota','kategoria','opis','data']
-        display.print_table(data, header)
+        os.system('clear')
         if decision == 1:
             #income_expenses.xxx
             pass
@@ -27,6 +31,7 @@ def main():
             config()
         else:
             display.print_message("No option!")
+
 
 if __name__ == '__main__':
     main()
