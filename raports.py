@@ -28,15 +28,17 @@ def gen_raport():
         menu = ['Incomes', 'Expenses', 'Exit']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
+        header = ['ID', 'Amount', 'Category', 'Description', 'Year', 'Month', 'Day']
         if decision == 1:
             data = data_manager.data_import('earnings.txt')
             data = common.sort(data)
-            display.print_table(data,'')
+            print(data)
+            display.print_table(data, header)
             save_raport(data)
         elif decision == 2:
             data = data_manager.data_import('expenses.txt')
             data = common.sort(data)
-            display.print_table(data, '')
+            display.print_table(data, header)
             save_raport(data)
 
 

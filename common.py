@@ -12,7 +12,7 @@ def sort(list_to_check):
     month = 5
     day = 6
     value = 1
-    
+
 
     sort_option = input("Do you want sort by date, category or value?[d/c/v]?: ")
     if sort_option == "d":
@@ -37,7 +37,7 @@ def sort(list_to_check):
         value_list = []
         for element in list_to_check:
             value_list.append(element)
-                
+
         return value_list
 
 def sort_date(list_to_check, year, month, day):
@@ -57,10 +57,10 @@ def sort_date(list_to_check, year, month, day):
 
     for elements in list_to_check:
 
-        elements[year] = int(elements[year])
-        elements[month] = int(elements[month])
-        elements[day] = int(elements[day])
-        set_year = datetime.date(elements[year],elements[month],elements[day])
+        #elements[year] = int(elements[year])
+        #elements[month] = int(elements[month])
+        #elements[day] = int(elements[day])
+        set_year = datetime.date(int(elements[year]), int(elements[month]), int(elements[day]))
         if set_year >= start and set_year <= end:
             display_elements.append(elements)
 
