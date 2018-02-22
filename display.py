@@ -46,10 +46,6 @@ def print_table(data):
         row.append(" |")
         print("".join(row))
 
-data = [['2d3S', '25.00', 'Categories', 'dggyht bhujnhg hhuyuu', 'Year', 'Month', 'Day'], 
-['9a3E', '5.0', 'Categories', 'gils', 'Year', 'Month', 'Day']]
-
-print_table(data)
 
 def total(filename):
     total = 0
