@@ -16,8 +16,8 @@ def print_list(data, header):
     print()
 
 
-def print_table(data, title):
-
+def print_table(data):
+    title = ['Id', 'Amount', 'Categories', 'Details', 'Year', 'Month', 'Day']
     max_lenght = []
     for i in range(len(title)):
         for j in range(len(data)):
