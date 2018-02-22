@@ -54,15 +54,15 @@ def add_record(category, data_):
     DAY_INDEX = 2
     record = [c.generate_id(data_)]
 
-    amount = float(input('Enter the amount [0.0] '))
+    amount = float(input('Enter the amount [0.0]: '))
     amount = format(amount, '.2f')
     record.append(str(amount))
 
     display.print_menu(category)
-    selected_category = int(input('Chose category number '))
+    selected_category = int(input('Chose category number: '))
     record.append(category[selected_category-1])
 
-    operation_details = input('Enter the operation details ')
+    operation_details = input('Enter the operation details: ')
     record.append(operation_details)
 
     expanse_date = date.today()
@@ -78,7 +78,7 @@ def add_record(category, data_):
 
 def remove_record(data):
     display.print_table(data)
-    removed_record = input('Enter id of record, which do you want remove. ')
+    removed_record = input('Enter id of record, which do you want remove: ')
 
     for element in data[:]:
         if removed_record == element[c.ID_INDEX]:
@@ -90,24 +90,24 @@ def edit_record(data, category):
     options = ['Amount', 'Categories', 'Details', 'Year', 'Month', 'Day']
 
     display.print_table(data)
-    edited_record = input('Enter id of record, which do you want edit. ')
+    edited_record = input('Enter id of record, which do you want edit: ')
     for element in data[:]:
         if edited_record == element[c.ID_INDEX]:
             display.print_menu(options)
-            selected_option = int(input('Chose option number '))
+            selected_option = int(input('Enter elwment number, which do you want edit: '))
 
             if selected_option == 1:
-                new_amount = format(float(input('Enter the amount [0.0] ')), '.2f')
+                new_amount = format(float(input('Enter the amount [0.0]: ')), '.2f')
                 element[selected_option] = str(new_amount)
             elif selected_option == 2:
                 display.print_menu(category)
-                selected_category = int(input('Chose category number '))
+                selected_category = int(input('Chose category number: '))
                 element[selected_option] = category[selected_category-1]
             elif selected_option == 3:
-                new_details = input('Enter new details ')
+                new_details = input('Enter new details: ')
                 element[selected_option] = new_details
             elif selected_option in (4, 5, 6):
-                new_date = int(input('Enter new date '))
+                new_date = int(input('Enter new date: '))
                 element[selected_option] = new_details
 
     return data

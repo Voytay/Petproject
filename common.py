@@ -3,6 +3,7 @@ import random
 import string
 import data_manager
 
+ID_INDEX = 0
 AMOUNT_INDEX = 1
 CATEGORY_INDEX = 2
 DETAILS_INDEX = 3
