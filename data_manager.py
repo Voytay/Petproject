@@ -1,8 +1,8 @@
 """ f. odczytuje z pliku
 parametry:
-filename -> "expenses.txt" 
+filename -> "expenses.txt"
 zwraca:
-data = [[l.p,kwota,kategoria,opis,data]]"""
+data = [[id,kwota,kategoria,opis,data]]"""
 
 def data_import(filename):
     with open(filename, "r") as file:
@@ -12,9 +12,9 @@ def data_import(filename):
     return content
 
 
-""" funkcja nadpisuje dane (mode = w) w pliku o podanej przez użytkownika nazwie 
+""" funkcja nadpisuje dane (mode = w) w pliku o podanej przez użytkownika nazwie
     parametry:
-    data -> lista list, 
+    data -> lista list,
     filename -> earnings.txt / expences.txt / categories.txt """
 
 def data_export(data, filename):
@@ -23,4 +23,3 @@ def data_export(data, filename):
             data[i] = list(map(str, data[i]))
             row = ",".join(data[i])
             file.write(row + "\n")
-

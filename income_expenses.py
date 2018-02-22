@@ -15,22 +15,28 @@ def get_category(filename):
 
 
 def expenses(expenses, expense_categories):
-    expense_options = ['Add expense', 'Remove expense', 'Display expenses in the current month', 'Back to main menu']
+    expense_options = ['Add expense', 'Remove expense', 'Edit expense', 'Display expenses in the current month', 'Back to main menu']
 
-    while True:
-        display.print_menu(expense_options)
-        selected_option = input('Enter a number: ')
+    try:
+        while True:
+            display.print_menu(expense_options)
+            selected_option = input('Enter a number: ')
 
-        if selected_option == '1':
-            add_record(expense_categories, expenses)
-        elif selected_option == '2':
-            remove_record(expenses)
-        elif selected_option == '3':
-            display_current_month(expenses)
-        elif selected_option == '4':
-            return False
-        else:
-            continue
+            if selected_option == '1':
+                add_record(expense_categories, expenses)
+            elif selected_option == '2':
+                remove_record(expenses)
+            elif selected_option == '3':
+                edit_record(expenses)
+            elif selected_option == '4':
+                display_current_month(expenses)
+            elif selected_option == '5':
+                return False
+    except ValueError:
+        print('Wrong value, you can not add this record. Please, try again.')
+    except IndexError:
+        print('Wrong number, you can not add this record. Please, try again. ')
+
 
 
 def sum_amount(data):
@@ -49,38 +55,32 @@ def add_record(category, data_):
     DAY_INDEX = 2
     record = [common.generate_id(data_)]
 
-    try:
-        amount = float(input('Enter the amount [0.0] '))
-        record.append(str(amount))
 
-        display.print_menu(category)
-        selected_category = int(input('Chose category number '))
-        record.append(category[selected_category-1])
+    amount = float(input('Enter the amount [0.0] '))
+    record.append(str(amount))
 
-        operation_details = input('Enter the operation details ')
-        record.append(operation_details)
+    display.print_menu(category)
+    selected_category = int(input('Chose category number '))
+    record.append(category[selected_category-1])
 
-        expanse_date = date.today()
-        expanse_date = expanse_date.timetuple()
-        record.append(str(expanse_date[YEAR_INDEX]))
-        record.append(str(expanse_date[MONTH_INDEX]))
-        record.append(str(expanse_date[DAY_INDEX]))
+    operation_details = input('Enter the operation details ')
+    record.append(operation_details)
 
-        data_.append(record)
-        print('Record added correctly. \n')
-        return data_
+    expanse_date = date.today()
+    expanse_date = expanse_date.timetuple()
+    record.append(str(expanse_date[YEAR_INDEX]))
+    record.append(str(expanse_date[MONTH_INDEX]))
+    record.append(str(expanse_date[DAY_INDEX]))
 
-    except ValueError:
-        print('Wrong value, you can not add this record. Please, try again.')
-    except IndexError:
-        print('Wrong number, you can not add this record. Please, try again. ')
+    data_.append(record)
+    print('Record added correctly. \n')
+    return data_
 
 
 def remove_record(data):
     ID_INDEX = 0
-    title = ['Id', 'Amount', 'Categories', 'Details', 'Year', 'Month', 'Day']
 
-    display.print_table(data, title)
+    display.print_table(data)
     removed_record = input('Enter id of record, which do you want remove. ')
 
     for element in data[:]:
@@ -89,10 +89,25 @@ def remove_record(data):
     return data
 
 
+def edit_record(data):
+    ID_INDEX = 0
+    AMOUNT_INDEX = 1
+    options = ['Amount', 'Categories', 'Details', 'Year', 'Month', 'Day']
+
+    display.print_table(data)
+    edited_record = input('Enter id of record, which do you want edit. ')
+    for element in data[:]:
+        if removed_record == element[ID_INDEX]:
+            display.print_menu(options)
+            selected_option = int(input('Chose category number '))
+            edited_option = input('Enter id of record, which do you want edit. ')
+
+
+    return data
+
 def display_current_month(data):
     MONTH_INDEX = 5
     MONTH_IN_TIMETUPLA_INDEX = 1
-    title = ['Id', 'Amount', 'Categories', 'Details', 'Year', 'Month', 'Day']
     current_month_list = []
 
     current_date= date.today()
@@ -105,7 +120,7 @@ def display_current_month(data):
     if current_month_list == []:
         print('No record to display.')
     else:
-        display.print_table(current_month_list, title)
+        display.print_table(current_month_list)
         sum_amount_ = sum_amount(current_month_list)
         print('Sum: ' + sum_amount_ + ' EUR\n')
 
