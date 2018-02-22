@@ -16,20 +16,20 @@ def print_list(data, header):
     print()
 
 
-def print_table(data, title):
-
+def print_table(data):
+    title = ['Id', 'Amount', 'Categories', 'Details', 'Year', 'Month', 'Day']
     max_lenght = []
-    for i in range(len(title)):
-        for j in range(len(data)):
-            max_len_in_column = len(title[i])
 
-            if len(data[j][i]) > max_len_in_column:
-                max_len_in_column = len(data[j][i])
+    for i in range(len(title)):
+        max_len_in_column = len(title[i])
+
+        for j in range(len(data)):
+            if len(str(data[j][i])) > max_len_in_column:
+                max_len_in_column = len(str(data[j][i]))
 
         max_lenght.append(max_len_in_column)
 
     extra_sign = 2*len(title)+2
-
     width = sum(max_lenght) + extra_sign
 
     row = []
@@ -42,7 +42,7 @@ def print_table(data, title):
     for item in data:
         row = []
         for i in range(len(title)):
-            row.append("| " + item[i].rjust(max_lenght[i]))
+            row.append("| " + str(item[i]).rjust(max_lenght[i]))
         row.append(" |")
         print("".join(row))
 

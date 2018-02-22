@@ -30,14 +30,17 @@ def main():
         elif decision == 2:
             income_expenses.incomes(incomes, income_categories)
         elif decision == 3:
-            raport()
+            raport(incomes, expenses)
         elif decision == 4:
-            config()
-        else:
-            display.print_message("No option!")
+            config(income_categories, expense_categories)
+
+    income_categories = common.prepare_list_to_save(income_categories)
+    expense_categories = common.prepare_list_to_save(expense_categories)
 
     data_manager.data_export(expenses, 'expenses.txt')
     data_manager.data_export(incomes, 'earnings.txt')
+    data_manager.data_export(income_categories, 'income_categories.txt')
+    data_manager.data_export(expense_categories, 'categories.txt')
 
 
 if __name__ == '__main__':
