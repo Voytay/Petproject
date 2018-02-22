@@ -94,7 +94,7 @@ def edit_record(data, category):
     for element in data[:]:
         if edited_record == element[c.ID_INDEX]:
             display.print_menu(options)
-            selected_option = int(input('Enter elwment number, which do you want edit: '))
+            selected_option = int(input('Enter number, which element do you want edit: '))
 
             if selected_option == 1:
                 new_amount = format(float(input('Enter the amount [0.0]: ')), '.2f')
