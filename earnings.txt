@@ -1,4 +1,4 @@
-g!1p,3500.0,salary,salary,2018,1,1
-o+3O,100.0,odd job,birthday,2018,1,20
-b)7D,3500.0,salary,salary,2018,2,01
-a(9S,1.0,salary,1,2018,2,22
+g!1p,3500.0,salary,job,2018,1,1
+o+3O,100.0,odd job,pick up apples,2017,9,20
+b)7D,3500.0,salary,job,2018,2,1
+a(9S,1.0,salary,job,2018,3,01
