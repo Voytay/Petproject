@@ -5,14 +5,14 @@ import data_manager
 
 AMOUNT_INDEX = 1
 CATEGORY_INDEX = 2
-DETAILS_INDEX = 3 
+DETAILS_INDEX = 3
 YEAR_INDEX = 4
 MONTH_INDEX = 5
 DAY_INDEX = 6
 
 def sort(list_to_check):
     """ Function display options sort by date or sort by category"""
-    
+
     running = True
     while running:
         try:
@@ -20,16 +20,16 @@ def sort(list_to_check):
 
             if sort_option == "d":
                 result_sort = sort_date(list_to_check)
-              
+
             elif sort_option == "c":
-                result_sort = sort_by_category(list_to_check) 
+                result_sort = sort_by_category(list_to_check)
 
             elif sort_option == "v":
                 result_sort = sort_by_value(list_to_check)
-               
+
             elif sort_option == "dt":
                 result_sort = sort_by_detail(list_to_check)
-               
+
             return result_sort
 
         except TypeError:
@@ -45,7 +45,7 @@ def sort_by_detail(list_to_check):
         if elements[DETAILS_INDEX] == get_item:
             detail_list.append(elements)
 
-    return detail_list                    
+    return detail_list
 
 def sort_by_value(list_to_check):
     """ Function return value category from list """
@@ -62,7 +62,7 @@ def sort_by_value(list_to_check):
                 data = sort_date(list_to_check)
                 return data
 
-    return display_elements    
+    return display_elements
 
 def sort_by_category(list_to_check):
     """ Function return category elements from list """
@@ -81,7 +81,7 @@ def sort_by_category(list_to_check):
 
                 return data
 
-    return display_elements        
+    return display_elements
 
 def sort_date(list_to_check):
     """ Function sort dates"""
@@ -144,3 +144,11 @@ def generate_id(data):
             if row[ids_index] == ids:
                 unique = False
     return ids
+
+
+def prepare_list_to_save(data):
+    prepared = []
+    for element in data:
+        element = [element]
+        prepared.append(element)
+    return prepared
