@@ -58,4 +58,5 @@ def total(filename):
 def print_percentage_spent():
     spent = total('expenses.txt')
     totalz = total('earnings.txt')
-    print_message("Total spent: " + spent + ' of ' + totalz + " | Left: {:.2%}".format((float(totalz)-float(spent))/float(totalz)))
+    print_message("Total spent: " + spent + ' of ' + totalz + \
+    " | Left: {:.2%}".format((float(totalz)-float(spent))/float(totalz)))
