@@ -1,5 +1,26 @@
-k!1F,25.0,shopping,food,2011,1,19
-u*2C,5.0,transport,bus ticket,2019,1,20
-x#6Q,56.5,shopping,food,2015,1,20
-l$2X,13.0,transport,taxi,2018,2,12
-m$7X,113.0,health,eye doctor,2018,2,22
+m$7X,113.00,bills,charges,2017,10,10
+o(4Q,56.50,shopping,food,2017,10,20
+g(4B,146.50,shopping,food,2017,10,20
+l*1X,5.00,transport,bus ticket,2017,10,22
+s$1D,32.00,health,vitamin,2017,10,22
+v+2S,113.00,bills,charges,2017,11,10
+t^6T,256.50,shopping,food,2017,11,15
+y%2R,13.00,transport,taxi,2017,11,17
+f%8W,75.00,eating aut,Papaya,2017,11,25
+o=8A,113.00,bills,charges,2017,12,10
+f&7T,142.50,shopping,food,2017,12,14
+h#2R,5.00,transport,bus ticket,2017,12,17
+b)9C,246.00,shopping,food,2017,12,20
+v!0Y,150.00,transport,petrol,2017,12,21
+z%3P,32.00,health,vitamin,2017,12,22
+j)0J,37.25,shopping,food,2018,1,9
+x#3E,113.00,bills,charges,2018,1,10
+x#6Q,76.55,shopping,food,2018,1,12
+k!7J,25.00,shopping,food,2018,1,20
+u*2C,150.00,transport,petrol,2018,1,20
+k!1F,15.00,shopping,food,2018,1,21
+y&6G,5.00,shopping,food,2018,2,5
+p*5T,113.00,bills,charges,2018,2,10
+l$2X,13.00,transport,petrol,2018,2,12
+v#6Y,113.00,health,eye doctor,2018,2,22
+u&4D,13.00,transport,taxi,2018,2,12

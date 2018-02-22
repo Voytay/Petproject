@@ -1,4 +1,7 @@
-g!1p,3500.0,salary,job,2018,1,1
-o+3O,100.0,odd job,pick up apples,2017,9,20
-b)7D,3500.0,salary,job,2018,2,1
-a(9S,1.0,salary,job,2018,3,01
+g!1R,3500.00,salary,job,2018,2,1
+o+3O,100.00,odd job,work with Jon,2018,01,20
+b)7D,3500.00,salary,job,2018,1,1
+q@4P,3500.00,salary,job,2017,12,01
+a&2G,3500.00,salary,job,2017,11,01
+h^1W,200.00,odd job,work with Jon,2017,10,20
+n%1S,3500.00,salary,job,2017,10,01
