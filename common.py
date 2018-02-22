@@ -3,72 +3,87 @@ import random
 import string
 import data_manager
 
+AMOUNT_INDEX = 1
+CATEGORY_INDEX = 2
+DETAILS_INDEX = 3 
+YEAR_INDEX = 4
+MONTH_INDEX = 5
+DAY_INDEX = 6
 
 def sort(list_to_check):
     """ Function display options sort by date or sort by category"""
-    value = 1
-    category = 2
-    item = 3
-    year = 4
-    month = 5
-    day = 6
     
-
     running = True
     while running:
         try:
-            sort_option = input("Do you want sort by date, category, value or item ?[d/c/v/i]?: ")
+            sort_option = input("Do you want sort by date, category, value or detail ?[d/c/v/dt]?: ")
 
             if sort_option == "d":
-                data = sort_date(list_to_check, year, month, day)
-                return data
-
+                result_sort = sort_date(list_to_check)
+              
             elif sort_option == "c":
-                display_elements = []
-
-                get_category = input("Enter category: ")
-                sort_by_date = input("Do you want to display at specifc time [y/n]: ?")
-
-                for elements in list_to_check:
-                    if elements[category] == get_category:
-                        if sort_by_date == "n":
-                            display_elements.append(elements)
-                        elif sort_by_date == "y":
-                            data = sort_date(list_to_check, year, month, day)
-
-                            return data
-
-                return display_elements
+                result_sort = sort_by_category(list_to_check) 
 
             elif sort_option == "v":
-                sort_by_date = input("Do you want to display at specifc time [y/n]: ?")
-                display_elements = []
-                for elements in list_to_check:
-                    if sort_by_date == "n":
-                        display_elements.append(elements)
-                    elif sort_by_date == "y":
-                        data = sort_date(list_to_check, year, month, day)
-                        return data
-
-                return display_elements    
-
-            elif sort_option == "i":
-                item_list = []
-
-                get_item = input("What kind of item do you looking for?: ")
-                for elements in list_to_check:
-                    if elements[item] == get_item:
-                        item_list.append(elements)
-                        
-                return item_list
-                        
-                    
-
+                result_sort = sort_by_value(list_to_check)
+               
+            elif sort_option == "dt":
+                result_sort = sort_by_detail(list_to_check)
+               
+            return result_sort
 
         except TypeError:
             print("Enter correct letter: ")
 
-def sort_date(list_to_check, year, month, day):
+def sort_by_detail(list_to_check):
+    """ Function return items category from list """
+
+    detail_list = []
+
+    get_item = input("What specific detail do you looking for?: ")
+    for elements in list_to_check:
+        if elements[DETAILS_INDEX] == get_item:
+            detail_list.append(elements)
+
+    return detail_list                    
+
+def sort_by_value(list_to_check):
+    """ Function return value category from list """
+
+    amount_input = float(input("Enter amount to display above: "))
+    sort_by_date = input("Do you want to display at specifc time [y/n]: ?")
+
+    display_elements = []
+    for elements in list_to_check:
+        if float(elements[AMOUNT_INDEX]) >= amount_input:
+            if sort_by_date == "n":
+                display_elements.append(elements)
+            elif sort_by_date == "y":
+                data = sort_date(list_to_check)
+                return data
+
+    return display_elements    
+
+def sort_by_category(list_to_check):
+    """ Function return category elements from list """
+
+    display_elements = []
+
+    get_category = input("Enter category: ")
+    sort_by_date = input("Do you want to display at specifc time [y/n]: ?")
+
+    for elements in list_to_check:
+        if elements[CATEGORY_INDEX] == get_category:
+            if sort_by_date == "n":
+                display_elements.append(elements)
+            elif sort_by_date == "y":
+                data = sort_date(list_to_check)
+
+                return data
+
+    return display_elements        
+
+def sort_date(list_to_check):
     """ Function sort dates"""
 
     running = True
@@ -82,8 +97,8 @@ def sort_date(list_to_check, year, month, day):
             display_elements = []
 
             for elements in list_to_check:
-                set_year = datetime.date(int(elements[year]), \
-                int(elements[month]), int(elements[day]))
+                set_year = datetime.date(int(elements[YEAR_INDEX]), \
+                int(elements[MONTH_INDEX]), int(elements[DAY_INDEX]))
                 if set_year >= start and set_year <= end:
                     display_elements.append(elements)
                     running = False
