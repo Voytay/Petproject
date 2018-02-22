@@ -4,7 +4,7 @@ import data_manager
 import os
 
 
-def raport():
+def raport(income, expenses):
     decision = 0
     while decision != 4:
         display.print_message("Raports menu")
@@ -12,7 +12,7 @@ def raport():
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
-            gen_raport()
+            gen_raport(income, expenses)
         elif decision == 2:
             data = get_list_raport()
             display.print_list(data, 'Files: \n')
@@ -21,23 +21,20 @@ def raport():
             validate_filename(data)
 
 
-def gen_raport():
+def gen_raport(income, expenses):
     decision = 0
     while decision != 3:
         display.print_message("Generating raport menu")
         menu = ['Incomes', 'Expenses', 'Exit']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
-       
+
         if decision == 1:
-            data = data_manager.data_import('earnings.txt')
-            data = common.sort(data)
-            print(data)
+            data = common.sort(income)
             display.print_table(data)
             save_raport(data)
         elif decision == 2:
-            data = data_manager.data_import('expenses.txt')
-            data = common.sort(data)
+            data = common.sort(expenses)
             display.print_table(data)
             save_raport(data)
 
