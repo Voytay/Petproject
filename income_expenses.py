@@ -1,6 +1,6 @@
 import data_manager
 import display
-import common
+import common as c
 from datetime import date
 
 
@@ -15,10 +15,12 @@ def get_category(filename):
 
 
 def expenses(expenses, expense_categories):
-    expense_options = ['Add expense', 'Remove expense', 'Edit expense', 'Display expenses in the current month', 'Back to main menu']
+    expense_options = ['Add expense', 'Remove expense', 'Edit expense', \
+    'Display expenses in the current month', 'Back to main menu']
+    selected_option = 0
 
-    try:
-        while True:
+    while selected_option != '5':
+        try:
             display.print_menu(expense_options)
             selected_option = input('Enter a number: ')
 
@@ -27,25 +29,22 @@ def expenses(expenses, expense_categories):
             elif selected_option == '2':
                 remove_record(expenses)
             elif selected_option == '3':
-                edit_record(expenses)
+                edit_record(expenses, expense_categories)
             elif selected_option == '4':
                 display_current_month(expenses)
-            elif selected_option == '5':
-                return False
-    except ValueError:
-        print('Wrong value, you can not add this record. Please, try again.')
-    except IndexError:
-        print('Wrong number, you can not add this record. Please, try again. ')
 
+        except ValueError:
+            print('Wrong value. Please, try again.')
+        except IndexError:
+            print('Wrong number. Please, try again. ')
 
 
 def sum_amount(data):
     sum_amount = 0
-    AMOUNT_INDEX = 1
 
     for element in data:
-        element[AMOUNT_INDEX] = float(element[AMOUNT_INDEX])
-        sum_amount += element[AMOUNT_INDEX]
+        element[c.AMOUNT_INDEX] = float(element[c.AMOUNT_INDEX])
+        sum_amount += element[c.AMOUNT_INDEX]
     return str(sum_amount)
 
 
@@ -53,10 +52,10 @@ def add_record(category, data_):
     YEAR_INDEX = 0
     MONTH_INDEX = 1
     DAY_INDEX = 2
-    record = [common.generate_id(data_)]
-
+    record = [c.generate_id(data_)]
 
     amount = float(input('Enter the amount [0.0] '))
+    amount = format(amount, '.2f')
     record.append(str(amount))
 
     display.print_menu(category)
@@ -78,44 +77,52 @@ def add_record(category, data_):
 
 
 def remove_record(data):
-    ID_INDEX = 0
-
     display.print_table(data)
     removed_record = input('Enter id of record, which do you want remove. ')
 
     for element in data[:]:
-        if removed_record == element[ID_INDEX]:
+        if removed_record == element[c.ID_INDEX]:
             data.remove(element)
     return data
 
 
-def edit_record(data):
-    ID_INDEX = 0
-    AMOUNT_INDEX = 1
+def edit_record(data, category):
     options = ['Amount', 'Categories', 'Details', 'Year', 'Month', 'Day']
 
     display.print_table(data)
     edited_record = input('Enter id of record, which do you want edit. ')
     for element in data[:]:
-        if removed_record == element[ID_INDEX]:
+        if edited_record == element[c.ID_INDEX]:
             display.print_menu(options)
-            selected_option = int(input('Chose category number '))
-            edited_option = input('Enter id of record, which do you want edit. ')
+            selected_option = int(input('Chose option number '))
 
+            if selected_option == 1:
+                new_amount = format(float(input('Enter the amount [0.0] ')), '.2f')
+                element[selected_option] = str(new_amount)
+            elif selected_option == 2:
+                display.print_menu(category)
+                selected_category = int(input('Chose category number '))
+                element[selected_option] = category[selected_category-1]
+            elif selected_option == 3:
+                new_details = input('Enter new details ')
+                element[selected_option] = new_details
+            elif selected_option in (4, 5, 6):
+                new_date = int(input('Enter new date '))
+                element[selected_option] = new_details
 
     return data
 
+
 def display_current_month(data):
-    MONTH_INDEX = 5
-    MONTH_IN_TIMETUPLA_INDEX = 1
+    MONTH_INDEX = 1
     current_month_list = []
 
     current_date= date.today()
     current_date = current_date.timetuple()
-    current_month = str(current_date[MONTH_IN_TIMETUPLA_INDEX])
+    current_month = str(current_date[MONTH_INDEX])
 
     for element in data:
-        if element[MONTH_INDEX] == current_month:
+        if element[c.MONTH_INDEX] == current_month:
             current_month_list.append(element)
     if current_month_list == []:
         print('No record to display.')
@@ -126,19 +133,24 @@ def display_current_month(data):
 
 
 def incomes(incomes, income_categories):
-    income_options = ['Add income', 'Remove income', 'Display incomes in the current month', 'Back to main menu']
+    income_options = ['Add income', 'Remove income', 'Edit incom' 'Display incomes in the current month',\
+    'Back to main menu']
+    selected_option = 0
 
-    while True:
-        display.print_menu(income_options)
-        selected_option = input('Enter a number: ')
+    while selected_option != '5':
+        try:
+            display.print_menu(income_options)
+            selected_option = input('Enter a number: ')
 
-        if selected_option == '1':
-            add_record(income_categories, incomes)
-        elif selected_option == '2':
-            remove_record(incomes)
-        elif selected_option == '3':
-            display_current_month(incomes)
-        elif selected_option == '4':
-            return False
-        else:
-            continue
+            if selected_option == '1':
+                add_record(income_categories, incomes)
+            elif selected_option == '2':
+                remove_record(incomes)
+            elif selected_option == '3':
+                edit_record(incomes, income_categories)
+            elif selected_option == '4':
+                display_current_month(incomes)
+        except ValueError:
+            print('Wrong value. Please, try again.')
+        except IndexError:
+            print('Wrong number. Please, try again. ')
