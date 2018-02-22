@@ -56,6 +56,17 @@ def add_category():
     data_manager.data_export(cat, 'categories.txt')
 
 
+def Magda_add_category(category):
+    new_category = input('Enter new category: ')
+    category.append(new_category)
+    return category
+
+def Magda_remove_category(category):
+    removed_category = input('Enter name of category, which do you want remove: ')
+    category.remove(removed_category)
+    return category
+
+
 def remove_category():
     name = input("Enter category to remove: ")
     cat = data_manager.data_import('categories.txt')
