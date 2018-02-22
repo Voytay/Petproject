@@ -16,7 +16,7 @@ def sort(list_to_check):
     running = True
     while running:
         try:
-            sort_option = input("Do you want sort by date, category, value or detail ?[d/c/v/dt]?: ")
+            sort_option = input("Do you want sort by date, category, value or detail [d/c/v/dt]:? ")
 
             if sort_option == "d":
                 result_sort = sort_date(list_to_check)
