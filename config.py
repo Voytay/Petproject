@@ -27,6 +27,7 @@ def config(cat_income, cat_expenses):
 
 def what_to_do(category):
     decision = 0
+    table = []
     while decision != 4:
         display.print_message("What you want to do?")
         menu = ['Show categories', 'Add category', 'Remove category', 'Exit']
