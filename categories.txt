@@ -1,6 +1,6 @@
 bills
 shopping
-eating out
+eating out 
 transport
 health
 other
