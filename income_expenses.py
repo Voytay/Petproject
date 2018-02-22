@@ -133,7 +133,7 @@ def display_current_month(data):
 
 
 def incomes(incomes, income_categories):
-    income_options = ['Add income', 'Remove income', 'Edit incom' 'Display incomes in the current month',\
+    income_options = ['Add income', 'Remove income', 'Edit income', 'Display incomes in the current month',\
     'Back to main menu']
     selected_option = 0
 
