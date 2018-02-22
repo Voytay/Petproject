@@ -19,17 +19,17 @@ def print_list(data, header):
 def print_table(data):
     title = ['Id', 'Amount', 'Categories', 'Details', 'Year', 'Month', 'Day']
     max_lenght = []
-    for i in range(len(title)):
-        for j in range(len(data)):
-            max_len_in_column = len(title[i])
 
+    for i in range(len(title)):
+        max_len_in_column = len(title[i])
+        
+        for j in range(len(data)):          
             if len(data[j][i]) > max_len_in_column:
                 max_len_in_column = len(data[j][i])
-
-        max_lenght.append(max_len_in_column)
+            
+        max_lenght.append(max_len_in_column) 
 
     extra_sign = 2*len(title)+2
-
     width = sum(max_lenght) + extra_sign
 
     row = []
@@ -46,6 +46,10 @@ def print_table(data):
         row.append(" |")
         print("".join(row))
 
+data = [['2d3S', '25.00', 'Categories', 'dggyht bhujnhg hhuyuu', 'Year', 'Month', 'Day'], 
+['9a3E', '5.0', 'Categories', 'gils', 'Year', 'Month', 'Day']]
+
+print_table(data)
 
 def total(filename):
     total = 0
