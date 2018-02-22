@@ -63,7 +63,8 @@ def Magda_add_category(category):
 
 def Magda_remove_category(category):
     removed_category = input('Enter name of category, which do you want remove: ')
-    category.remove(removed_category)
+    if removed_category in category:
+        category.remove(removed_category)
     return category
 
 
