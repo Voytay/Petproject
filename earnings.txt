@@ -1,3 +1,4 @@
-1,3500.0,earnings,salary,2018,1,1
-2,100.0,earnings,birthday,2018,1,20
-3,3500.0,earnings,salary,2018,2,01
+g!1p,3500.0,earnings,salary,2018,1,1
+o+3O,100.0,earnings,birthday,2018,1,20
+b)7D,3500.0,earnings,salary,2018,2,01
+a(9S,1.0,salary,1,2018,2,22

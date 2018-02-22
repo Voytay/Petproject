@@ -1,3 +1,4 @@
-1,25.0,shopping,sock,2011,1,19
-2,5.0,transport,bus ticket,2019,1,20
-3,56.5,shopping,food shopping,2015,1,20
+k!1F,25.0,shopping,sock,2011,1,19
+u*2C,5.0,transport,bus ticket,2019,1,20
+x#6Q,56.5,shopping,food shopping,2015,1,20
+l$2X,3.0,transport,e,2018,2,22
