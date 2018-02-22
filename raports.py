@@ -6,9 +6,9 @@ import os
 
 def raport(income, expenses):
     decision = 0
-    while decision != 4:
+    while decision != 5:
         display.print_message("Raports menu")
-        menu = ['Generate raport', 'Show raports', 'Delete raports', 'Exit']
+        menu = ['Generate raport', 'Show raports', 'Show specified raport', 'Delete raports', 'Exit']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
@@ -18,7 +18,12 @@ def raport(income, expenses):
             display.print_list(data, 'Files: \n')
         elif decision == 3:
             data = get_list_raport()
-            validate_filename(data)
+            filename = validate_filename(data)
+            show_raport(filename)
+        elif decision == 4:
+            data = get_list_raport()
+            filename = validate_filename(data)
+            delete_raport(filename)
 
 
 def gen_raport(income, expenses):
@@ -59,11 +64,22 @@ def get_list_raport():
 def validate_filename(list_of_files):
     filename = input("Enter filename: ")
     for element in list_of_files:
-        print(element)
         if element == filename:
-            delete_raport(filename)
+            return filename
 
 
 def delete_raport(filename):
-    os.remove(filename)
-    display.print_message("Raport " + filename + " removed!")
+    if filename:
+        os.remove(filename)
+        display.print_message("Raport " + filename + " removed!")
+    else:
+        display.print_message("No such file!")
+
+
+def show_raport(filename):
+    if filename:
+        data = data_manager.data_import(filename)
+        display.print_table(data)
+    else:
+        display.print_message("No such file!")
+
