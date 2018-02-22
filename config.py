@@ -11,32 +11,39 @@ import data_manager
 import raports
 
 
-def config():
-    decision = 0
-    while decision != 2:
-        display.print_message("Config menu")
-        menu = ['Categories', 'Exit']
-        display.print_menu(menu)
-        decision = common.get_decision_input(decision)
-        if decision == 1:
-            categories()
-
-
-def categories():
+def config(cat_income, cat_expenses):
     decision = 0
     while decision != 3:
-        display.print_message("Config categories menu")
-        menu = ['Show categories', 'Edit categories', 'Exit']
+        display.print_message("Config menu")
+        menu = ['Incomes', 'Expenses', 'Return']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
-            cat = data_manager.data_import('categories.txt')
-            display.print_list(cat, "Categories")
+            cat_income = what_to_do(cat_income)
         elif decision == 2:
-            edit_categories()
+            cat_expenses = what_to_do(cat_expenses)
+    return cat_income, cat_expenses
 
 
-def edit_categories():
+def what_to_do(category):
+    decision = 0
+    while decision != 4:
+        display.print_message("What you want to do?")
+        menu = ['Show categories', 'Add category', 'Remove category', 'Exit']
+        display.print_menu(menu)
+        decision = common.get_decision_input(decision)
+        if decision == 1:
+            cat = []
+            cat.append(category)
+            display.print_table(cat)
+        elif decision == 2:
+            category = add_category(category)
+        elif decision == 3:
+            category = remove_category(category)
+    return category
+
+
+def edit_category():
     decision = 0
     while decision != 3:
         display.print_message("Edit categories")
@@ -49,31 +56,16 @@ def edit_categories():
             remove_category()
 
 
-def add_category():
-    name = [input("Enter name of category: ")]
-    cat = data_manager.data_import('categories.txt')
-    cat.append(name)
-    data_manager.data_export(cat, 'categories.txt')
-
-
-def Magda_add_category(category):
+def add_category(category):
     new_category = input('Enter new category: ')
     category.append(new_category)
     return category
 
-def Magda_remove_category(category):
+
+def remove_category(category):
     removed_category = input('Enter name of category, which do you want remove: ')
     if removed_category in category:
         category.remove(removed_category)
     return category
 
 
-def remove_category():
-    name = input("Enter category to remove: ")
-    cat = data_manager.data_import('categories.txt')
-    for row in cat:
-        for element in row:
-            if element == name:
-                to_remove = cat.index(row)
-                cat.pop(to_remove)
-    data_manager.data_export(cat, 'categories.txt')
