@@ -14,8 +14,8 @@ import raports
 def config(cat_income, cat_expenses):
     decision = 0
     while decision != 3:
-        display.print_message("Config menu")
-        menu = ['Incomes', 'Expenses', 'Return']
+        display.print_message("Configuration menu")
+        menu = ['Incomes', 'Expenses', 'Back to main menu']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
@@ -30,7 +30,7 @@ def what_to_do(category):
     table = []
     while decision != 4:
         display.print_message("What you want to do?")
-        menu = ['Show categories', 'Add category', 'Remove category', 'Exit']
+        menu = ['Show categories', 'Add category', 'Remove category', 'Back to configuration menu']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
@@ -48,7 +48,7 @@ def edit_category():
     decision = 0
     while decision != 3:
         display.print_message("Edit categories")
-        menu = ['Add category', 'Delete category', 'Exit']
+        menu = ['Add category', 'Delete category', 'Return ']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
