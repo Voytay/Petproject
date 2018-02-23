@@ -6,7 +6,7 @@ from config import config
 from raports import raport
 import os
 import intro
-
+import time
 
 def main():
     expenses = data_manager.data_import('expenses.txt')
@@ -17,9 +17,11 @@ def main():
     os.system('clear')
     decision = 0
 
-    display.print_message(intro.intro)
-    display.print_message(intro.intro2)
+
     while decision != 5:
+        os.system('clear')
+        display.print_message(intro.intro)
+        display.print_message(intro.intro2)
         display.print_message("Main menu")
         menu = ['Expenses', 'Incomes', 'Raports', 'Categories configuration', 'Exit']  # main menu
         display.print_menu(menu)
