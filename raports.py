@@ -8,7 +8,7 @@ def raport(income, expenses):
     decision = 0
     while decision != 5:
         display.print_message("Raports menu")
-        menu = ['Generate raport', 'Show raports', 'Show specified raport', 'Delete raports', 'Exit']
+        menu = ['Generate raport', 'Show raports', 'Show specified raport', 'Delete raports', 'Back to main menu']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
@@ -30,7 +30,7 @@ def gen_raport(income, expenses):
     decision = 0
     while decision != 3:
         display.print_message("Generating raport menu")
-        menu = ['Incomes', 'Expenses', 'Exit']
+        menu = ['Incomes', 'Expenses', 'Back to raports menu']
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
 

@@ -35,7 +35,6 @@ def what_to_do(category):
         decision = common.get_decision_input(decision)
         if decision == 1:
             for element in category:
-                #element = [element]
                 print(element)
         elif decision == 2:
             category = add_category(category)
