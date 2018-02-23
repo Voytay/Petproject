@@ -34,9 +34,9 @@ def what_to_do(category):
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         if decision == 1:
-            cat = []
-            cat.append(category)
-            display.print_table(cat)
+            for element in category:
+                #element = [element]
+                print(element)
         elif decision == 2:
             category = add_category(category)
         elif decision == 3:

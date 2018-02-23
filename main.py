@@ -21,7 +21,7 @@ def main():
     display.print_message(intro.intro2)
     while decision != 5:
         display.print_message("Main menu")
-        menu = ['Expenses', 'Incomes', 'Raports', '###Config', 'Exit']  # main menu
+        menu = ['Expenses', 'Incomes', 'Raports', 'Categories configuration', 'Exit']  # main menu
         display.print_menu(menu)
         decision = common.get_decision_input(decision)
         os.system('clear')
